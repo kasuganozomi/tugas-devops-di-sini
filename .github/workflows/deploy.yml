@@ -12,17 +12,12 @@ jobs:
       - name: 1. Ambil Kode Repositori (Checkout)
         uses: actions/checkout@v4
 
-      - name: 2. Pemasangan Bun Runtime
-        uses: oven-sh/setup-bun@v2
-        with:
-          bun-version: latest
-
-      - name: 3. Instalasi Dependensi & Kompilasi
+      - name: 2. Instalasi Dependensi & Kompilasi
         run: |
           bun install
           bun run build
 
-      - name: 4. Sinkronisasi Bersih ke Direktori Produksi (/app/tugas-devops)
+      - name: 3. Sinkronisasi Bersih ke Direktori Produksi (/app/tugas-devops)
         run: |
           mkdir -p /app/tugas-devops
           rsync -av --delete --exclude='.git' --exclude='.github' ./ /app/tugas-devops/
