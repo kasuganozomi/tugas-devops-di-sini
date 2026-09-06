@@ -1,0 +1,34 @@
+name: Deploy Next.js to Cloud VPS
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: self-hosted
+    steps:
+      - name: 1. Ambil Kode Repositori (Checkout)
+        uses: actions/checkout@v4
+
+      - name: 2. Pemasangan Bun Runtime
+        uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: latest
+
+      - name: 3. Instalasi Dependensi Proyek
+        run: |
+          bun install
+
+      - name: 4. Kompilasi Produksi (Static Export)
+        run: |
+          bun run build
+
+      - name: 5. Sinkronisasi Bersih ke Direktori Web Nginx
+        run: |
+          sudo rsync -av --delete ./out/ /var/www/tugas2/
+
+      - name: 6. Muat Ulang Layanan Nginx
+        run: |
+          sudo systemctl reload nginx

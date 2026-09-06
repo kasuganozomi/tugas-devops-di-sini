@@ -1,0 +1,105 @@
+.pipeline-status {
+  margin-bottom: 3rem;
+}
+
+.pipeline-status__headline {
+  font-family: var(--font-serif);
+  font-size: clamp(1.6rem, 3.5vw, 2.2rem);
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 0.8rem;
+  color: var(--color-ink);
+}
+
+.pipeline-status__lead {
+  font-family: var(--font-serif);
+  font-size: 1.15rem;
+  line-height: 1.6;
+  color: var(--color-ink-muted);
+  margin-bottom: 1.75rem;
+}
+
+.pipeline-status__table-wrapper {
+  overflow-x: auto;
+  margin-bottom: 2rem;
+}
+
+.pipeline-status__table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: var(--font-sans);
+  font-size: 0.88rem;
+}
+
+.pipeline-status__table th,
+.pipeline-status__table td {
+  padding: 0.75rem 0.5rem;
+  text-align: left;
+  vertical-align: middle;
+}
+
+.pipeline-status__table thead th {
+  border-top: 2px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  letter-spacing: 0.05em;
+  color: var(--color-ink);
+}
+
+.pipeline-status__table tbody tr {
+  border-bottom: 1px solid var(--color-hairline);
+}
+
+.pipeline-status__table tbody tr:last-child {
+  border-bottom: 2px solid var(--color-border);
+}
+
+.pipeline-status__param {
+  font-weight: 600;
+  color: var(--color-ink);
+  width: 32%;
+}
+
+.pipeline-status__value {
+  color: var(--color-ink);
+  font-family: var(--font-mono);
+  font-size: 0.84rem;
+}
+
+.pipeline-status__badge {
+  display: inline-block;
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding: 0.15rem 0.6rem;
+  border: 1px solid var(--color-ink);
+  background: var(--color-surface);
+}
+
+.pipeline-status__box {
+  background-color: var(--color-surface);
+  border-left: 3px solid var(--color-ink);
+  padding: 1.25rem 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.pipeline-status__box-title {
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-weight: 600;
+  color: var(--color-ink);
+  margin-bottom: 0.4rem;
+}
+
+.pipeline-status__box-text {
+  font-family: var(--font-serif);
+  font-size: 0.95rem;
+  color: var(--color-ink-muted);
+  line-height: 1.55;
+}
