@@ -20,5 +20,5 @@ jobs:
       - name: 3. Sinkronisasi Bersih ke Direktori Produksi (/app/tugas-devops)
         run: |
           mkdir -p /app/tugas-devops
-          rsync -av --delete --exclude='.git' --exclude='.github' ./ /app/tugas-devops/
+          rsync -av --delete --exclude='.git' --exclude='.github' --exclude='node_modules' ./ /app/tugas-devops/
           echo "Deployment berhasil disinkronkan ke /app/tugas-devops!"
