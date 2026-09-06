@@ -1,4 +1,4 @@
-name: Deploy Next.js to Cloud VPS
+name: Clean Self-Hosted Deployment
 
 on:
   push:
@@ -17,18 +17,13 @@ jobs:
         with:
           bun-version: latest
 
-      - name: 3. Instalasi Dependensi Proyek
+      - name: 3. Instalasi Dependensi & Kompilasi
         run: |
           bun install
-
-      - name: 4. Kompilasi Produksi (Static Export)
-        run: |
           bun run build
 
-      - name: 5. Sinkronisasi Bersih ke Direktori Web Nginx
+      - name: 4. Sinkronisasi Bersih ke Direktori Produksi (/app/tugas-devops)
         run: |
-          sudo rsync -av --delete ./out/ /var/www/tugas2/
-
-      - name: 6. Muat Ulang Layanan Nginx
-        run: |
-          sudo systemctl reload nginx
+          mkdir -p /app/tugas-devops
+          rsync -av --delete --exclude='.git' --exclude='.github' ./ /app/tugas-devops/
+          echo "Deployment berhasil disinkronkan ke /app/tugas-devops!"
