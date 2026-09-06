@@ -21,4 +21,9 @@ jobs:
         run: |
           mkdir -p /app/tugas-devops
           rsync -av --delete --exclude='.git' --exclude='.github' --exclude='node_modules' ./ /app/tugas-devops/
-          echo "Deployment berhasil disinkronkan ke /app/tugas-devops!"
+
+      - name: 4. Jalankan Kontainer Layanan Web (Docker Compose)
+        run: |
+          cd /app/tugas-devops
+          docker compose up -d
+          echo "Deployment berhasil dan kontainer aktif di port 30005!"

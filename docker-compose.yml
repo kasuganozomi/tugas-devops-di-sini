@@ -1,0 +1,17 @@
+name: tugas-devops
+
+services:
+  web:
+    image: nginx:alpine
+    container_name: tugas-devops-web
+    restart: unless-stopped
+    volumes:
+      - ./out:/usr/share/nginx/html:ro
+    ports:
+      - "127.0.0.1:30005:80"
+    networks:
+      - production_network
+
+networks:
+  production_network:
+    external: true
